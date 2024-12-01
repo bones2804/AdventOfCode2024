@@ -1,3 +1,5 @@
+from functools import reduce
+
 def main():
     # Read input from file
     try:
@@ -32,10 +34,7 @@ def main():
     list2.sort()
 
     #varible to store the sum of the differences
-    sum_of_differences = 0
-
-    for i in range(len(list1)):
-        sum_of_differences += abs(list1[i] - list2[i])
+    sum_of_differences = reduce(lambda sum, pair: sum + abs(pair[0]-pair[1]), zip(list1, list2), 0)
 
     print(sum_of_differences)
 
