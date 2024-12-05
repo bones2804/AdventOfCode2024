@@ -11,7 +11,7 @@ def main():
         if(i > 0 and i < len(lines)-1):
             matches = re.finditer('A', lines[i])
             for m in matches:
-                if(m.start(0) > 0 and m.start(0) < (len(lines[i])-2)):
+                if(m.start(0) > 0 and m.start(0) < (len(lines[i])-1)):
                     l = [False] * 4;
                     #print(i, m.start(0), len(lines[i])-2)
                     l[0] = lines[i -1][m.start(0) -1] == 'M' and lines[i +1][m.start(0) +1] == 'S'
@@ -28,7 +28,7 @@ def main():
                         print('')
 
                     #check if 2 of the 4 above are true
-                    if(l[0] + l[1] + l[2] + l[3] >= 2):
+                    if(l[0] + l[1] + l[2] + l[3] == 2):
                         x_count += 1
                         
 
