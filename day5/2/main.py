@@ -72,19 +72,11 @@ def check_rule(numbers):
 def graph_sort(numbers):
     global graph
     numbers = [int(n) for n in numbers]
-    sorted = False
 
-    count = 0
-    while not sorted:
-        for i in range(len(numbers)):
-            for j in range(i + 1, len(numbers)):
-                if numbers[j] in graph[numbers[i]]:
-                    numbers[i], numbers[j] = numbers[j], numbers[i]
-        count += 1
-        sorted = check_rule(numbers)
-
-        if(count > 1):
-            print("sorting again ", count)
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if numbers[j] in graph[numbers[i]]:
+                numbers[i], numbers[j] = numbers[j], numbers[i]
 
     return numbers
 
